@@ -1,0 +1,35 @@
+
+
+<mat-card>
+    <form #todoForm="ngForm" (ngSubmit)="onAddTodo()">
+    <div class="form-group">
+        <label for="todoItem">todoItem</label>
+        <input
+        required
+        minlength="6"
+        name="todoItem"
+        ngModel
+        #todoItem="ngModel"
+        type="text" class="form-control">
+
+        <strong *ngIf="todoItem.touched && todoItem.hasError('required')">
+            <p>this field is ReQuired</p>
+        </strong>
+
+         <strong *ngIf="todoItem.dirty && todoItem.hasError('minlength')">
+            <p>this field is ReQuired</p>
+        </strong>
+    </div>
+
+    <button
+    *ngIf="!isInEditMode"
+    [disabled]="todoForm.invalid"
+    mat-raised-button color="primary">Add button</button>
+
+    <button 
+     *ngIf="isInEditMode"
+     (click)="Onupdate()"
+     type="button"
+    mat-raised-button color="primary">Update button</button>
+    </form>
+</mat-card>

@@ -1,0 +1,42 @@
+<mat-card>
+    <table class="table table-bordered table-responsive" *ngIf="stdArr.length>0;else Nostd">
+        <thead>
+            <tr>
+                <th>sr number</th>
+                <th>Full name</th>
+                <th>email</th>
+                <th>contact</th>
+                <th>isActive</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of stdArr;let i=index;trackBy:trackByfun">
+                <td>{{i+1}}</td>
+                <td>{{std.fname}} {{std.lname}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.contact}}</td>
+                <td>{{std.isActive}}</td>
+                <td>
+                    <button 
+                    (click)="OnEdit(std)"
+                    mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button 
+                    (click)="onRemove(std.stdid)"
+                    mat-mini-fab color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #Nostd>
+        <p class="text-primary">No student data Available!!!</p>
+    </ng-template>
+</mat-card>

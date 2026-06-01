@@ -1,0 +1,28 @@
+<mat-card>
+    <ul class="list-group" *ngIf="todoArr.length>0;else Notodo">
+        <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todoArr;trackBy:trackbyFun">
+           <strong>
+            {{todo.todoItem}}
+           </strong>
+           <div>
+             <button 
+             (click)="onEdit(todo)"
+             mat-mini-fab color="primary" class="mr-2">
+                <mat-icon>edit</mat-icon>
+             </button>
+
+             <button
+             (click)="Onremove(todo.todoId)"
+             mat-mini-fab color="warn">
+                <mat-icon>delete</mat-icon>
+             </button>
+           </div>
+        </li>
+    </ul>
+
+    <ng-template #Notodo>
+        <p>
+            notodos Availbale!!!
+        </p>
+    </ng-template>
+</mat-card>
