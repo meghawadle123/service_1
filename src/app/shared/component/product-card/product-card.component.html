@@ -1,0 +1,38 @@
+<div class="container" *ngIf="productArr.length>0;else Noproduct">
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let Product of productArr">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        {{Product.productName}}
+                    </mat-card-title>
+                </mat-card-header>
+
+
+                <img [src]="Product.imageUrl" [alt]="Product.imageUrl" style="width: 100%;height: 350px;object-fit: cover;">
+                <mat-card-content>
+                    <p>price:{{Product.price}}</p>
+                    <p>brand:{{Product.brand}}</p>
+                </mat-card-content>
+
+                <mat-card-actions class="d-flex justify-content-between">
+                    <button
+                    (click)="OnEdit(Product)"
+                    mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button 
+                    (click)="onRemove(Product.productId)"
+                    mat-mini-fab color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<ng-template #Noproduct>
+    <p>No product is Availbale</p>
+</ng-template>

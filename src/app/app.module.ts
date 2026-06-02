@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { GetconfirmComponent } from './shared/component/getconfirm/getconfirm.component';
 import { StudentTableComponent } from './shared/component/student-table/student-table.component';
 import { StudentFormComponent } from './shared/component/student-form/student-form.component';
+import { ProductFormComponent } from './shared/component/product-form/product-form.component';
+import { ProductCardComponent } from './shared/component/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { StudentFormComponent } from './shared/component/student-form/student-fo
     GetconfirmComponent,
     StudentTableComponent,
     StudentFormComponent,
+    ProductFormComponent,
+    ProductCardComponent,
    
   ],
   imports: [

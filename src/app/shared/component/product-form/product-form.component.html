@@ -1,0 +1,74 @@
+<form #productForm="ngForm" (ngSubmit)="onAddproduct()">
+    <div class="form-group">
+        <label for="productName">productName</label>
+        <input 
+        required
+        ngModel
+        #productName="ngModel"
+        name="productName"
+        type="text" class="form-control">
+
+        <strong *ngIf="productName.touched && productName.hasError('required')">
+            <p class="text-danger">
+                this Field is required
+            </p>
+        </strong>
+    </div>
+
+    <div class="form-group">
+        <label for="brand">brand*</label>
+        <input 
+        required
+        ngModel
+        #brand="ngModel"
+        name="brand"
+        type="text" class="form-control">
+
+        <strong *ngIf="brand.touched && brand.hasError('required')">
+            <p class="text-danger">
+                this Field is required
+            </p>
+        </strong>
+    </div>
+
+    <div class="form-group">
+        <label for="price">price*</label>
+        <input 
+        required
+        ngModel
+        #price="ngModel"
+        name="price"
+        type="text" class="form-control">
+
+        <strong *ngIf="price.touched && price.hasError('required')">
+            <p class="text-danger">
+                this Field is required
+            </p>
+        </strong>
+    </div>
+
+    <div class="form-group">
+        <label for="imageUrl">imageUrl*</label>
+        <input 
+        required
+        ngModel
+        #imageUrl="ngModel"
+        name="imageUrl"
+        type="text" class="form-control">
+
+        <strong *ngIf="imageUrl.touched && imageUrl.hasError('required')">
+            <p class="text-danger">
+                this Field is required
+            </p>
+        </strong>
+    </div>
+
+    <button 
+    *ngIf="!isInEditMode"
+    [disabled]="productForm.invalid"
+    mat-raised-button color="primary">Add button</button>
+    <button 
+    *ngIf="isInEditMode"
+    (click)="onUpdate()"
+    mat-raised-button color="primary" type="button">Update button</button>
+</form>
