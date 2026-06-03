@@ -1,0 +1,41 @@
+<div class="container mt-5" *ngIf="postArr.length > 0; else nopost">
+  <div class="row">
+    <div
+      class="col-md-4 mb-3"
+      *ngFor="let post of postArr; trackBy: trackByfun"
+      style="display: flex;"
+    >
+      <mat-card
+        style="width: 100%; height: 100%; display: flex; flex-direction: column;"
+      >
+        <mat-card-header>
+          <mat-card-title>
+            {{ post.title }}
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content style="flex-grow: 1;">
+          {{ post.body }}
+        </mat-card-content>
+
+        <mat-card-actions class="d-flex justify-content-between">
+          <button 
+          (click)="onEdit(post)"
+          mat-mini-fab color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button 
+          (click)="onRemove(post.id)"
+          mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<ng-template #nopost>
+  <p>data is not available</p>
+</ng-template>

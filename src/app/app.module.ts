@@ -17,6 +17,8 @@ import { StudentTableComponent } from './shared/component/student-table/student-
 import { StudentFormComponent } from './shared/component/student-form/student-form.component';
 import { ProductFormComponent } from './shared/component/product-form/product-form.component';
 import { ProductCardComponent } from './shared/component/product-card/product-card.component';
+import { PostCardComponent } from './shared/component/post-card/post-card.component';
+import { PostFormComponent } from './shared/component/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ProductCardComponent } from './shared/component/product-card/product-ca
     StudentFormComponent,
     ProductFormComponent,
     ProductCardComponent,
+    PostCardComponent,
+    PostFormComponent,
    
   ],
   imports: [

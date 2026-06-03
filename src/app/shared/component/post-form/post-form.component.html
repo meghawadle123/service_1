@@ -1,0 +1,54 @@
+
+<form #postForm="ngForm" (ngSubmit)="onPostAdd()">
+    <div class="form-group">
+        <label for="title">title*</label>
+        <input 
+        required
+        ngModel
+        #title="ngModel"
+        name="title"
+        type="text" class="form-control">
+
+        <strong *ngIf="title.touched && title.hasError('required')">
+            <p class="text-danger">this is required field</p>
+        </strong>
+    </div>
+
+    <div class="form-group">
+        <label for="body">body*</label>
+        <input 
+        required
+        ngModel
+        #body="ngModel"
+        name="body"
+        type="text" class="form-control">
+
+        <strong *ngIf="body.touched && body.hasError('required')">
+            <p class="text-danger">this is required field</p>
+        </strong>
+    </div>
+
+    <div class="form-group">
+        <label for="userId">userId*</label>
+        <select 
+        required
+        ngModel
+        #userId="ngModel"
+        name="userId"
+        type="text" class="form-control">
+           <option value="1">1</option>
+           <option value="2">2</option>
+       </select>
+        <strong *ngIf="userId.touched && userId.hasError('required')">
+            <p class="text-danger">this is required field</p>
+        </strong>
+    </div>
+
+    <button
+    *ngIf="!isInEditMode"
+    mat-raised-button color="primary">Add button</button>
+    <button
+    *ngIf="isInEditMode"
+    (click)="onUpdate()"
+    mat-raised-button color="primary" type="button">upadte button</button>
+</form>
